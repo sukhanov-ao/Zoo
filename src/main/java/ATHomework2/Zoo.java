@@ -46,7 +46,7 @@ public class Zoo {
 //        Hippo gloria = new Hippo("Gloria", -100);
         //       Sloth flash = new Sloth("Flash", -100);
         Animal alex = new Lion("Alex", -100);
-//        Tiger tigger = new Tiger("Tigger", -100);
+        Tiger tigger = new Tiger("Tigger", -100);
 //        Wolf akela = new Wolf("Akela", -100);
 //        feedAnimal(bob);
 //       feedAnimal(charlie);
@@ -54,13 +54,14 @@ public class Zoo {
 //        feedAnimal(gloria);
 //        feedAnimal(flash);
         feedAnimal(alex);
-//        feedAnimal(tigger);
+        feedAnimal(tigger);
 //        feedAnimal(akela);
 
-        Cage cageForMeateaters = new Cage(5, true);
-        Cage cageForGrassEaters = new Cage(3, false);
+        Cage cageForMeateaters = new Cage(5, true, false);
+        Cage cageForGrassEaters = new Cage(3, false, true);
         cageForMeateaters.addAnimal(alex);
         cageForGrassEaters.addAnimal(melman);
+        cageForMeateaters.addAnimal(tigger);
 
 
     }
