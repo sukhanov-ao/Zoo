@@ -3,7 +3,7 @@ package ATHomework2;
 public abstract class Grasseater extends Animal{
     public Grasseater(String name, int hungry) {
         super(name, hungry);
-        meateater = true;
+        grasseater = true;
     }
 
     @Override

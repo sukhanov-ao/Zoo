@@ -13,19 +13,24 @@ public class Cage {
         this.forGrasseaters = forGrasseaters;
     }
 
-    public ArrayList animalList = new ArrayList(cageCapacity);
-    public void addAnimal (Animal animal) {
-        if (cageCapacity > 0) {
-            if (forGrasseaters && animal.grasseater) {
+    private ArrayList animalList = new ArrayList(cageCapacity);
+    public void addAnimal(Animal animal) {
+        int i = 0;
+        if ( i < cageCapacity) {
+            if (forGrasseaters == animal.grasseater) {
                 animalList.add(animal);
-                System.out.println("В клетку для травоядных добавлен " + animal.name);
+                System.out.println("В клетку добавлен " + animal.name);
+                //i++;
+            } else {
+                System.out.println("Нельзя поместить животное в клетку");
             }
-            else if (forMeateaters && animal.meateater) {
-                animalList.add(animal);
-                System.out.println("В клетку для хищников добавлен " + animal.name);
-            }
-        } else {
-            System.out.println("Нельзя создать клетку отрицательного размера");
+        }else {
+            System.out.println("Нельзя поместить животное в клетку. Клетка заполнена");
         }
     }
+
+    public void getAnimal(Animal animal) {
+        System.out.println(animalList.indexOf(animal));
+    }
+
 }
