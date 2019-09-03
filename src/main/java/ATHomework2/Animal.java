@@ -11,14 +11,8 @@ public abstract class Animal {
         this.hungry = hungry;
     }
 
-    public Animal(boolean animalType) {
-        this.meateater = animalType;
-    }
-
-    public boolean eat(Food food)  {
-        hungry += food.value;
-        food.value = 0;
-        return hungry >= 0;
-    }
+//    public abstract boolean eat (Food food);
+    public abstract boolean eat(Meat meat);
+    public abstract boolean eat (Grass grass);
     public abstract void areYouHungry();
 }

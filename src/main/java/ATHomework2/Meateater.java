@@ -6,13 +6,16 @@ public abstract class Meateater extends Animal {
         meateater = true;
     }
 
-    public void eat (Grass grass) {
-        System.out.println("Я не ем траву!");
-    }
-    public void eat (Meat meat) {
+    @Override
+    public boolean eat(Meat meat) {
         hungry += meat.value;
-        meat.value = 0;
-        System.out.print("Я съел мясо");
+        return hungry >= 0;
+    }
+
+    @Override
+    public boolean eat(Grass grass) {
+        System.out.println("Я не буду есть траву!");
+        return hungry < 0;
     }
 
     @Override
