@@ -1,7 +1,8 @@
 package ATHomework2;
 
-public class Tiger extends Meateater {
-    public Tiger(String name, int hungry) {
+public class Tiger extends Meateater implements AnimalInfo {
+    public Tiger(String name, int hungry)
+    {
         super(name, hungry);
     }
 
@@ -12,5 +13,10 @@ public class Tiger extends Meateater {
         } else {
             System.out.println(name + ": Я все еще хочу кушать " + hungry);
         }
+    }
+
+    @Override
+    public void voice() {
+        System.out.println("Grrrrmeow!");
     }
 }

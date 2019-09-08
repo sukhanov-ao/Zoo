@@ -1,18 +1,18 @@
 package ATHomework2;
 
-public abstract class Animal {
-    protected int hungry;
+public abstract class Animal implements AnimalInfo {
+   protected int hungry;
     public String name;
     public boolean meateater;
     public boolean grasseater;
 
     public Animal(String name, int hungry) {
         this.name = name;
-        this.hungry = hungry;
+        this.hungry = this.hungry;
     }
 
-//    public abstract boolean eat (Food food);
-    public abstract boolean eat(Meat meat);
-    public abstract boolean eat (Grass grass);
+    public abstract boolean eat(Meat meat) throws WrongFoodException;
+    public abstract boolean eat (Grass grass) throws WrongFoodException;
     public abstract void areYouHungry();
+
 }

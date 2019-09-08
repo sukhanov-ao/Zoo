@@ -1,7 +1,9 @@
 package ATHomework2;
 
-public class Cabbage extends Grass {
-    {
-        int value = 5;
+public class Cabbage extends Grass implements FoodValue{
+
+    @Override
+    public int getValue() {
+        return 10;
     }
 }

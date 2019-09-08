@@ -1,6 +1,6 @@
 package ATHomework2;
 
-public abstract class Meateater extends Animal {
+public abstract class Meateater extends Animal implements AnimalInfo {
     public Meateater(String name, int hungry) {
         super(name, hungry);
         meateater = true;
@@ -8,14 +8,13 @@ public abstract class Meateater extends Animal {
 
     @Override
     public boolean eat(Meat meat) {
-        hungry += meat.value;
+        hungry += meat.getValue();
         return hungry >= 0;
     }
 
     @Override
-    public boolean eat(Grass grass) {
-        System.out.println("Я не буду есть траву!");
-        return hungry < 0;
+    public boolean eat(Grass grass) throws WrongFoodException {
+        throw new WrongFoodException("Попытка накормить хищника травой");
     }
 
     @Override

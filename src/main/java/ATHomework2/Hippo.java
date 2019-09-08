@@ -1,6 +1,6 @@
 package ATHomework2;
 
-public class Hippo extends Grasseater {
+public class Hippo extends Grasseater implements AnimalInfo{
     public Hippo (String name, int hungry) {
         super(name, hungry);
     }
@@ -12,6 +12,11 @@ public class Hippo extends Grasseater {
         } else {
             System.out.println(name + ": Я все еще хочу кушать " + hungry);
         }
+    }
+
+    @Override
+    public void voice() {
+        System.out.println("Говорит по-бегемотьи");
     }
 }
 

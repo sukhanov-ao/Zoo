@@ -2,7 +2,7 @@ package ATHomework2;
 
 public class Zoo {
 
-    public static void feedAnimal(Animal animal) {
+    public static void feedAnimal(Animal animal) throws WrongFoodException {
         Meat[] porks = new Pork[10];
         Meat[] steaks = new Steak [4];
         Grass[] drygrasses = new Drygrass[15];
@@ -34,48 +34,82 @@ public class Zoo {
             animal.areYouHungry();
         }
 
-        for (Meat pork : porks) {
-            if (pork.value == 0) {
+/*        for (Meat pork : porks) {
+            if (pork.getValue() == 0) {
                 System.out.println("От мяса ничего не осталось.");
             } else {
                 System.out.println("Этот кусок мяса не съели.");
-//                animal.areYouHungry();
+                animal.areYouHungry();
             }
         }
         for (Grass grass : drygrasses) {
-            if (grass.value == 0) {
+            if (grass.getValue() == 0) {
                 System.out.println("От травы ничего не осталось.");
             } else {
                 System.out.println("Эту траву  не съели. ");
                 animal.areYouHungry();
             }
-        }
+        }*/ // проверка, что еда кончается.
     }
 
     public static void main(String[] args) {
-
+//Кормление животных
         Animal melman = new Giraffe("Melman", -100);
-        Hippo gloria = new Hippo("Gloria", -100);
-        Sloth flash = new Sloth("Flash", -100);
+        Animal gloria = new Hippo("Gloria", -100);
+        Animal flash = new Sloth("Flash", -100);
         Animal alex = new Lion("Alex", -100);
-        Tiger tigger = new Tiger("Tigger", -57);
-        Wolf akela = new Wolf("Akela", -200);
-        feedAnimal(melman);
-        feedAnimal(gloria);
-        feedAnimal(flash);
-        feedAnimal(alex);
-        feedAnimal(tigger);
-        feedAnimal(akela);
+        Animal tigger = new Tiger("Tigger", -57);
+        Animal akela = new Wolf("Akela", -200);
+        try {
+            feedAnimal(melman);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            feedAnimal(gloria);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            feedAnimal(flash);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            feedAnimal(alex);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            feedAnimal(tigger);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
+        try {
+            feedAnimal(akela);
+        } catch (WrongFoodException e) {
+            e.printStackTrace();
+        }
 
-        Cage cageForMeateaters = new Cage(1, true, false);
-        Cage cageForGrassEaters = new Cage(3, false, true);
+
+//Помещение животных в клетки и обращение к ним
+        Cage cageForMeateaters = new Cage(3, true, false);
+        Cage cageForGrassEaters = new Cage(2, false, true);
         cageForGrassEaters.addAnimal(melman);
         cageForGrassEaters.addAnimal(gloria);
         cageForGrassEaters.addAnimal(flash);
         cageForMeateaters.addAnimal(alex);
         cageForMeateaters.addAnimal(tigger);
-        cageForMeateaters.addAnimal(akela);
-        cageForMeateaters.getAnimal(akela);
-        cageForGrassEaters.getAnimal(gloria);
+        cageForMeateaters.addAnimal(gloria);
+        cageForMeateaters.getAnimalMeateater(0);
+        cageForGrassEaters.getAnimalGrasseater(1);
+
+        akela.voice();
+        alex.voice();
+        tigger.voice();
+        melman.voice();
+        gloria.voice();
+        flash.voice();
+
     }
 }
